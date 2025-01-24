@@ -1,0 +1,17 @@
+nav ul {
+  display: flex;
+  list-style: none;
+  background-color:darkgrey;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color:blue;
+  font-size: 20px;
+}
+
+nav a:hover {
+  color: chartreuse;
+  text-decoration: underline;
+}
