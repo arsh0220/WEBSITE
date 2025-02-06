@@ -15,7 +15,7 @@ const footerStyle = {
     color: "#fff",
     textAlign: "center",
     padding: "13px",
-    marginTop: "auto",
+    marginTop: "20px",
 };
 
 export default Footer;

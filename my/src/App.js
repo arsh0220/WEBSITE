@@ -7,9 +7,12 @@ import LogIn from './components/login';
 import Footer from './components/footer';
 import Sidebar from './components/sidebar';
 import ToolBox from './components/toolbox';
+import Signup from './components/signup';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
-  return (
+return (
     <BrowserRouter>
       <div style={appContainer}>
         <Sidebar />
@@ -21,6 +24,7 @@ function App() {
               <li><Link to="/services">Services</Link></li>
               <li><Link to="/login">LogIn</Link></li>
               <li><Link to="/toolbox">ToolBox</Link></li>
+              <li><Link to="/signup">Signup</Link></li>
             </ul>
           </nav>
           <Routes>
@@ -29,6 +33,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/toolbox" element={<ToolBox />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
           <Footer />
         </div>

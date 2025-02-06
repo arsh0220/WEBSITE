@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
     return (
         <>
-            <div style={signup}>
+            <div style={LogIn}>
                 <h1>Login</h1>
                 <div style={form}>
                     <label htmlFor="First-name"> USERNAME:</label>
@@ -19,12 +19,18 @@ const Login = () => {
                         <button style={buttonStyle}>Login</button>
                     </Link>
                 </div>
+                <div>
+                <h3>Don't have an Account</h3>
+                <Link to="/signup">
+                    <button style={buttonStyle}>Signup</button>
+                </Link>
+                </div>
             </div>
         </>
     );
 };
 
-const signup = {
+const LogIn = {
     textAlign: "center",
     height: "20-rem",
     display: "flex",
