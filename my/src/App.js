@@ -1,50 +1,32 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Home from './components/home';
-import About from './components/about';
-import Services from './components/services';
-import LogIn from './components/login';
 import Footer from './components/footer';
 import Sidebar from './components/sidebar';
-import ToolBox from './components/toolbox';
-import Signup from './components/signup';
-import { useEffect, useState } from "react";
-import axios from "axios";
+import Head from './components/Head';
+import PageContent from './layout/pagecontent';
+import { Navigate } from 'react-router-dom';
 
-function App() {
-return (
-    <BrowserRouter>
-      <div style={appContainer}>
-        <Sidebar />
-        <div style={mainContent}>
-          <nav style={navStyle}>
-            <ul>
-              <li><Link to="/home">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/login">LogIn</Link></li>
-              <li><Link to="/toolbox">ToolBox</Link></li>
-              <li><Link to="/signup">Signup</Link></li>
-            </ul>
-          </nav>
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/toolbox" element={<ToolBox />} />
-            <Route path="/signup" element={<Signup />} />
-          </Routes>
-          <Footer />
-        </div>
+function App({ children }) {
+  const token = localStorage.getItem("userToken");
+
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
+  return (
+
+    <div style={appContainer}>
+      <Sidebar />
+      <div style={mainContent}>
+        <Head />
+        <PageContent children={children}/>
+        <Footer />
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 
 const appContainer = {
   display: 'flex',
-  flexDirection: 'row', 
+  flexDirection: 'row',
   height: '100vh',
 };
 
@@ -54,9 +36,4 @@ const mainContent = {
   flexDirection: 'column',
   padding: '20px',
 };
-
-const navStyle = {
-  marginBottom: '20px',
-};
-
 export default App;
